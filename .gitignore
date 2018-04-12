@@ -1,0 +1,13 @@
+#Windows下开发Python生成隐藏的缩略图文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+*.iml
+*.MF
