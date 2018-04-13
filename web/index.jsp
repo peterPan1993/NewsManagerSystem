@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String path = request.getContextPath();
+  String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,13 +19,16 @@
 <body>
 <div id="header">
   <div id="top_login">
+    <form method="post" action="login.jsp">
     <label> 登录名 </label>
-    <input type="text" id="uname" value="" class="login_input" />
+    <input type="text" id="userName" class="login_input" />
     <label> 密&#160;&#160;码 </label>
-    <input type="password" id="upwd" value="" class="login_input" />
-    <input type="button" class="login_sub" value="登录" onclick="login()"/>
+    <input type="password" id="password" class="login_input" />
+    <input type="submit" class="login_sub" value="登录" onclick="login()"/>
     <label id="error"> </label>
-    <img src="images/friend_logo.gif" alt="Google" id="friend_logo" /> </div>
+    <img src="images/friend_logo.gif" alt="Google" id="friend_logo" />
+    </form>
+  </div>
   <div id="nav">
     <div id="logo"> <img src="images/logo.jpg" alt="新闻中国" /> </div>
     <div id="a_b01"> <img src="images/a_b01.gif" alt="" /> </div>
