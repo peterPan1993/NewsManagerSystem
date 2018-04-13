@@ -76,4 +76,5 @@
     </table>
 </form>
 </body>
+<%=pageContext.getAttribute("name")%>
 </html>
