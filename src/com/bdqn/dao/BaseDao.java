@@ -13,6 +13,11 @@ import org.apache.log4j.Logger;
 
 import com.bdqn.utils.ConfigManager;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 /**
  * 数据库连接与关闭工具
  * 
@@ -34,7 +39,7 @@ public abstract class BaseDao<T> {
 	 * 获取数据库连接对象
 	 * @return 连接对象
 	 */
-	public Connection getConnection() {
+	public Connection getConnectionOne() {
 		try {
 			//加载驱动
 			Class.forName(ConfigManager.getInstance().getString("jdbc.driver"));
@@ -51,6 +56,20 @@ public abstract class BaseDao<T> {
 			logger.error(e);
 		}
 		return null;
+	}
+	public Connection getConnection() {
+		Connection conn=null;
+		try {
+			Context context = new InitialContext();
+			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/news");
+			conn=ds.getConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+		    return conn;
+		}
 	}
 
 	/**
