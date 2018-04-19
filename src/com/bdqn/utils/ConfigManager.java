@@ -19,7 +19,6 @@ public class ConfigManager {
 			properties.load(is);
 			is.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

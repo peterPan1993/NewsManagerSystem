@@ -15,6 +15,7 @@
 </head>
 <body>
 <%
+    //JNDI必须运行到Tomcat服务器测试，不能使用main/junit运行测试，否则报错
     Context ct = new InitialContext();
     out.print(ct.lookup("java:comp/env/tjndi"));
     UserDao us = new UserDaoImpl();
