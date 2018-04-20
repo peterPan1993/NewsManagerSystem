@@ -26,6 +26,13 @@
     <!--测试jstl 通用标签-->
     设置变量之前的值是：msg=<c:out value="${msg}" default="null"/><br/>
     給变量设置......<c:set var="msg" value="Hello World!" scope="page"/><br/>
+    <!--
+        将value存储到scope的变量variable
+        <c:set var="variable" value="value" scope="scope"/>
+
+        将value值设置到对象的属性中，一般用EL获取对象
+        <c:set target="javaBean" property="属性名" value="属性的值"/>
+    -->
     设置新值以后：msg=<c:out value="${msg}" default="null"/><br/>
     把变量移除......<c:remove var="msg" scope="page"/><br/>
     移除变量msg以后：msg=<c:out value="${msg}" default="null"/><br/>

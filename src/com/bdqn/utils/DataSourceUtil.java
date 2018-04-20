@@ -38,20 +38,20 @@ public class DataSourceUtil {
 	 * @return 连接对象
 	 */
 	public static Connection getConnection(){
+		Connection conn=null;
 		try {
 			//加载驱动
 			Class.forName(ConfigManager.getInstance().getString("jdbc.driver"));
 			//获得连接
-			return DriverManager.getConnection(ConfigManager.getInstance().getString("jdbc.url"),
+			conn = DriverManager.getConnection(ConfigManager.getInstance().getString("jdbc.url"),
 					ConfigManager.getInstance().getString("jdbc.username"),
 					ConfigManager.getInstance().getString("jdbc.password"));
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return conn;
 	}
 	/**
 	 * 关闭数据库所有连接

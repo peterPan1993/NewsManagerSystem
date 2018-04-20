@@ -15,7 +15,6 @@ public class ConfigManager {
 			properties=new Properties();
 			//类加载器
 			InputStream is = ConfigManager.class.getClassLoader().getResourceAsStream("database.properties");
-			
 			properties.load(is);
 			is.close();
 		} catch (IOException e) {
@@ -29,7 +28,7 @@ public class ConfigManager {
 		}
 		return configManager;
 	}
-	
+	//读取properties文件数据
 	public String getString(String key){
 		return properties.getProperty(key);
 	}

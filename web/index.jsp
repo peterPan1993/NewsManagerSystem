@@ -10,6 +10,8 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    // request.getRequestURI();
+    // request.setCharacterEncoding();
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -22,15 +24,16 @@
         <meta http-equiv="description" content="This is my page">
         <title>新闻中国</title>
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <script type="application/javascript" src="js/login.js"></script>
     </head>
     <body>
         <div id="header">
             <div id="top_login">
-                <form method="post" action="login.jsp">
+                <form method="post" action="login">
                     <label> 登录名 </label>
-                    <input type="text" id="userName" class="login_input"/>
+                    <input type="text" name="userName" id="userName" class="login_input"/>
                     <label> 密&#160;&#160;码 </label>
-                    <input type="password" id="password" class="login_input"/>
+                    <input type="password" name="password" id="password" class="login_input"/>
                     <input type="submit" class="login_sub" value="登录" onclick="login()"/>
                     <label id="error"> </label>
                     <img src="images/friend_logo.gif" alt="Google" id="friend_logo"/>

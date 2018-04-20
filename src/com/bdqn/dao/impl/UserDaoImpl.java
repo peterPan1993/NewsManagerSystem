@@ -20,4 +20,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         i=super.executeUpdate(sql,new Object[]{user.getUname(),user.getUpwd()});
         return i;
     }
+
+    @Override
+    public NewsUsers insert(String userName) {
+        return null;
+    }
 }
