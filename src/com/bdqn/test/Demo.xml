@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students>
+    <!--注释-->
+    <student id="1" name="admin" score="&lt;80"/>
+    <description>
+        <![CDATA[讲解元素<>&'"的使用]]>
+    </description>
+</students>
