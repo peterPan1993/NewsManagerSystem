@@ -1,8 +1,8 @@
 package com.company.entity;
 
-import com.bdqn.entity.User;
+import com.bdqn.entity.AbstractUser;
 
-public class Employee extends User {
+public class Employee extends AbstractUser {
 
 
 

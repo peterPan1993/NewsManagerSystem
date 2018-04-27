@@ -3,7 +3,7 @@
 <%@ page import="com.bdqn.dao.impl.UserDaoImpl" %>
 <%@ page import="com.bdqn.entity.NewsUsers" %><%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  AbstractUser: Administrator
   Date: 2018/4/16
   Time: 14:46
   To change this template use File | Settings | File Templates.

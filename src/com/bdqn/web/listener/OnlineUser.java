@@ -1,7 +1,6 @@
 package com.bdqn.web.listener;
 
 import com.bdqn.entity.NewsUsers;
-import com.bdqn.entity.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSessionBindingEvent;

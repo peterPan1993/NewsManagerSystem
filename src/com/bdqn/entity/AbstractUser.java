@@ -2,13 +2,13 @@ package com.bdqn.entity;
 
 import java.io.Serializable;
 
-public abstract class User implements Serializable {
+public abstract class AbstractUser implements Serializable {
 
-	private Integer id;
-	private String userName;
-	private String password;
-	private Character gender;
-	private Long phone;
+	protected Integer id;
+	protected String userName;
+	protected String password;
+	protected Character gender;
+	protected Long phone;
 	
 	public Integer getId() {
 		return id;
@@ -40,12 +40,12 @@ public abstract class User implements Serializable {
 	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
-	public User() {
+	public AbstractUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(Integer id, String userName, String password, Character gender,
-			Long phone) {
+	public AbstractUser(Integer id, String userName, String password, Character gender,
+                        Long phone) {
 		super();
 		this.id = id;
 		this.userName = userName;
