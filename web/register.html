@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>注册</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="UI/layui-v2.3.0/layui/css/layui.css">
+    <script type="text/javascript" src="UI/layui-v2.3.0/layui/layui.all.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/register.css">
+    <script type="text/javascript">
+        function validate() {
+            var name = $("#name").val();
+            if (name == null || name == "") {
+                $("#valname").html("用户名不能为空！");
+            } else {
+                //Ajax实现
+                $.ajax({
+                    "url": "login",//
+                    "type": "POST",//
+                    "data": "userName=" + name + "&password=",//
+                    "dataType": "Text",//返回的数据格式
+                    "success": callBack,//响应成功后要执行的代码
+                    "error": function () {//请求失败后执行
+                        alert("warning")
+                    }
+                });
+
+                function callBack(data) {//入参表示响应结果
+                    if (data == -1) {
+                        $("#valname").html("用户名可以使用！");
+                    } else {
+                        $("#valname").html("用户名已被使用！");
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<form method="post" class="layui-form" action="register">
+    <div class="layui-form-item"></div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="userName" id="name" maxlength="20" placeholder="请输入20位以内的用户名"
+                   required onblur="validate()"/>
+        </div>
+        <div class="layui-form-mid layui-word-aux">
+            &nbsp;<span style="color: #c00fff" id="valname">*</span>
+        </div>
+    </div>
+    <!--<p><span>真实姓名：</span><input type="text" name="realName" id="realName" maxlength="4" placeholder="请输入真实姓名"/>&nbsp;&nbsp;<span></span></p>-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+        <div class="layui-input-inline">
+            <input type="password" class="layui-input" name="password" id="pass" maxlength="20"
+                   placeholder="请输入密码，20位以内"
+                   required/>
+        </div>
+        <div class="layui-form-mid layui-word-aux">
+            &nbsp;<span style="color: #c00fff" id="valpass">*</span>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">重复密码：</label>
+        <div class="layui-input-inline">
+            <input type="password" class="layui-input" name="password" id="repass" placeholder="请重新输入密码" required/>
+        </div>
+        <div class="layui-form-mid">
+            &nbsp;<span style="color: #c00fff" id="valrepass">*</span>
+        </div>
+    </div>
+    <!--<p>性  别：
+        <label for="man">男</label><input type="radio" name="sex" value="man" checked id="man"/>
+        <label for="wom">女</label><input type="radio" name="sex" value="wom" id="wom"/>
+    </p>-->
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">重置</button>
+        </div>
+    </div>
+</form>
+<!--<div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">标题一</li>
+        <li>标题二</li>
+        <li>标题三</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">内容1</div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">内容3</div>
+    </div>
+</div>-->
+</body>
+</html>

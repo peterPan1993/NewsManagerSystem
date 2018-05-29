@@ -1,22 +1,14 @@
 package com.bdqn.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bdqn.utils.DataSourceUtil;
 import org.apache.log4j.Logger;
-
-import com.bdqn.utils.ConfigManager;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 /**
  * 数据库增删改查操作的公共方法
@@ -24,9 +16,7 @@ import javax.sql.DataSource;
  */
 public abstract class BaseDao<T> {
 
-
-	protected static Logger logger = Logger.getLogger(BaseDao.class);
-
+	private static Logger logger = Logger.getLogger(BaseDao.class);
 	protected Connection conn;
 
 	/**
@@ -58,7 +48,7 @@ public abstract class BaseDao<T> {
 			e.printStackTrace();
 			logger.error(e);
 		} finally {
-
+			DataSourceUtil.closeAllResource(null,ps,null);
 		}
 		return -1;
 	}
@@ -90,18 +80,18 @@ public abstract class BaseDao<T> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			logger.error(e);
-		}finally{
-
+		} finally {
+			DataSourceUtil.closeAllResource(null,ps,rs);
 		}
 		return null;
 	}
 
 	/**
-	 *
+	 * 查询总记录数或最大ID
 	 * @param sql
 	 * @return
 	 */
-	public Integer executeQueryMaxId(String sql){
+	public Integer executeQueryNumber(String sql){
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
@@ -113,9 +103,9 @@ public abstract class BaseDao<T> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			logger.error(e);
-		}finally{
-
+		} finally {
+			DataSourceUtil.closeAllResource(null,ps,rs);
 		}
-		return null;
+		return 0;
 	}
 }

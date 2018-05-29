@@ -6,4 +6,5 @@ public interface UserService {
 
     NewsUsers login(String userName, String password);
 
+    Integer register(NewsUsers user);
 }

@@ -2,7 +2,7 @@ package com.bdqn.entity;
 
 import java.io.Serializable;
 
-public class NewsUsers implements Serializable {
+public class NewsUsers {
 
     private int uid;
     private String uname;
@@ -38,7 +38,5 @@ public class NewsUsers implements Serializable {
         this.upwd = upwd;
     }
 
-    public NewsUsers() {
-
-    }
+    public NewsUsers() {}
 }

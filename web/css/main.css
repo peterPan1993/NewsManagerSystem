@@ -15,10 +15,12 @@ a:hover{ color:#f00; text-decoration:underline;}
 		.login_sub{ width:51px; height:19px; border:none; background:url(../images/login_sub.gif) no-repeat;}
 		.login_link{ text-decoration:underline; margin:0 6px;}
 		#friend_logo{ position:absolute; top:6px; right:6px;}
+		#top_login a{ text-decoration:none;}
+		#top_login a:hover{ color: blue;}
 		
 	#nav{ clear:both;}
 		#logo{ float:left; width:145px; margin:8px 0 0 12px;}
-		
+		#a_b01{margin:12px 0 0 4px;}
 		#mainnav{ float:right; margin:10px 10px 0 0 ;}
 		#mainnav ul{ clear:both;}
 		#mainnav ul li{ float:left; margin:0 2px; padding-left:6px; background:url(../images/nav_leftdot.gif) no-repeat 0 8px; line-height:24px;}

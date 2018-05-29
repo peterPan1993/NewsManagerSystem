@@ -2,9 +2,11 @@ package com.bdqn.dao;
 
 import com.bdqn.entity.NewsUsers;
 
+import java.sql.SQLException;
+
 public interface UserDao {
 
-    int addUser(NewsUsers user);
-    NewsUsers insert(String userName);
+    int insertUser(NewsUsers user) throws SQLException;
+    NewsUsers getUserByUserName(String userName) throws SQLException;
 
 }

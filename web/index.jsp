@@ -16,32 +16,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="pragma" content="no-cache">
-        <meta http-equiv="cache-control" content="no-cache">
-        <meta http-equiv="expires" content="0">
-        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-        <meta http-equiv="description" content="This is my page">
+        <base href="<%=basePath%>"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta http-equiv="cache-control" content="no-cache"/>
+        <meta http-equiv="expires" content="0"/>
+        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+        <meta http-equiv="description" content="This is my page"/>
         <title>新闻中国</title>
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
-        <script type="application/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/modules/index.js"></script>
     </head>
     <body>
         <div id="header">
             <div id="top_login">
-                <form method="post" action="login">
+                <form method="post" action="doLogin" id="form">
                     <label> 登录名 </label>
                     <input type="text" name="userName" id="userName" class="login_input"/>
                     <label> 密&#160;&#160;码 </label>
                     <input type="password" name="password" id="password" class="login_input"/>
-                    <input type="submit" class="login_sub" value="登录" onclick="login()"/>
-                    <label id="error"> </label>
+                    <input type="button" class="login_sub" value="登录" onclick="login()"/>
+                    <input type="button" class="login_sub" value="注册" onclick="register()"/>
+                    <label id="error" style="color: red"></label>
                     <img src="images/friend_logo.gif" alt="Google" id="friend_logo"/>
                 </form>
+                <div style="display: none" id="login_success"><span>欢迎登录：${user.uname} &nbsp;</span><a onclick="logout()">退出登录</a></div>
             </div>
             <div id="nav">
                 <div id="logo"><img src="images/logo.jpg" alt="新闻中国"/></div>
-                <div id="a_b01"><img src="images/a_b01.gif" alt=""/></div>
+                <div id="a_b01"><img src="images/a_b01.gif" alt="体育频道"/></div>
                 <!--mainnav end-->
             </div>
         </div>
@@ -78,12 +82,17 @@
                 <div class="class_type"><img src="images/class_type.gif" alt="新闻中心"/></div>
                 <div class="content">
                     <ul class="class_date">
-                        <li id='class_month'><a href='#'><b> 国内 </b></a> <a href='#'><b> 国际 </b></a> <a href='#'><b> 军事 </b></a>
+                        <li id='class_month'>
+
+                            <a href='#'><b> 国内 </b></a>
+
+                            <a href='#'><b> 国际 </b></a> <a href='#'><b> 军事 </b></a>
                             <a href='#'><b> 体育 </b></a> <a href='#'><b> 娱乐 </b></a> <a href='#'><b> 社会 </b></a> <a href='#'><b>
                                 财经 </b></a> <a href='#'><b> 科技 </b></a> <a href='#'><b> 健康 </b></a> <a href='#'><b> 汽车 </b></a>
-                            <a href='#'><b> 教育 </b></a></li>
-                        <li id='class_month'><a href='#'><b> 房产 </b></a> <a href='#'><b> 家居 </b></a> <a href='#'><b> 旅游 </b></a>
-                            <a href='#'><b> 文化 </b></a> <a href='#'><b> 其他 </b></a></li>
+                            <a href='#'><b> 教育 </b></a>
+                        <a href='#'><b> 房产 </b></a> <a href='#'><b> 家居 </b></a> <a href='#'><b> 旅游 </b></a>
+                            <a href='#'><b> 文化 </b></a> <a href='#'><b> 其他 </b></a>
+                        </li>
                     </ul>
                     <ul class="classlist">
                         <li><a href='news_read.jsp'> 深足教练组：说我们买球是侮辱 朱广沪常暗中支招 </a><span> 2013-06-06 01:03:51.0 </span></li>

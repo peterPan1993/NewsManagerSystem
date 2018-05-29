@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="user">
+    <ul>
+        <li id="id"></li>
+        <li id="name"></li>
+        <li id="password"></li>
+    </ul>
+</div>
+<div>
+    <select id="select"></select>
+</div>
+<script type="text/javascript">
+    var user={"id":1,name:"user",password:"admin"};//json对象格式的定义
+    var array=["admin","admin1"];//json数组格式的定义
+    var userArray=[{id:1,name:"user",password:"admin"},{"id":2,name:"user2",password:"admin2"}];//json对象数组的定义
+    $("#id").html("用户ID："+user.id);
+    $("#name").html("用户名："+user.name);
+    $("#password").html("密码："+user.password);
+
+    //转换为jQuery数组
+    var $array=$(array);
+    //类似for each遍历
+    $array.each(function () {
+        var option = "<option>"+this+"</option>";
+        $("#select").append(option);
+    })
+</script>
+</body>
+</html>

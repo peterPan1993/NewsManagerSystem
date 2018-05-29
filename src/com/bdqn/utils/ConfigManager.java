@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * 读取properties文件配置的属性值
+ */
 public class ConfigManager {
 
 	private static ConfigManager configManager;

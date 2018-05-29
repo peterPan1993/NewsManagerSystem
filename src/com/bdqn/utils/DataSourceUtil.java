@@ -56,18 +56,10 @@ public class DataSourceUtil {
 	/**
 	 * 关闭数据库所有连接
 	 */
-	public static void closeAllResource(Connection conn, Statement stmt, PreparedStatement ps,
-								 ResultSet rs) {
+	public static void closeAllResource(Connection conn, Statement stmt, ResultSet rs) {
 		if (rs != null) {
 			try {
 				rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if (ps != null) {
-			try {
-				ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
