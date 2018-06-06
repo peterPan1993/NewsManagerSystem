@@ -1,3 +1,4 @@
+/*原来 $(function(){…}); 也可以写作 jQuery(function($) {…}); ， 其实就是$(document).ready(funcrtion{...}); 的简写。*/
 function login() {
     var userName = $("#userName").val();
     var password = $("#password").val();
@@ -44,4 +45,22 @@ function register() {
     window.open("register.html");
     /*location.href("register.html");*/
 }
+
+/*function showMessage(name,age,sex) {
+    alert(name+":"+age+":"+sex);
+}
+showMessage("111",25,"nv");*/
+
+/*方法的后面加括号的意思是执行*/
+/*自调用匿名函数*/
+//无参
+/*(function () {
+    alert("匿名函数！");
+})();*/
+//有参
+/*(function (name) {
+    alert(name);
+})("ccy");*/
+
+
 
